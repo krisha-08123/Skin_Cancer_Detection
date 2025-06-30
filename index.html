@@ -1,0 +1,164 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinScan Squad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            background: linear-gradient(135deg, #d4b5a5, #c49a89, #b38576);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: #FFF5E1;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 70px;
+            font-weight: normal;
+            color: #5a3d31;
+            margin: 0;
+        }
+        h2 {
+            font-size: 40px;
+            font-weight: normal;
+            color: #5a3d31;
+            margin: 0 0 20px 0;
+        }
+        p {
+            font-size: 18px;
+            color: #5a3d31;
+        }
+        .btn {
+            background-color: #D2B48C;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #5a3d31;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background-color: #f3e5d8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="subtext">YOUR PERSONALISED <br> SKIN CANCER DETECTION</p><br></br>
+        <h1>SkinScan</h1>
+        <h1>Squad</h1><br></br>
+        <p>Early Detection saves your life. Your skin, Your Health. Try it now! </p>
+        <button class="btn" onclick="window.location.href='register_page.html'">
+    Register & Login😊
+</button>
+    </div>
+</body>
+</html>
+<!-- Open Dashboard Button (Top Right) -->
+<button id="openDashboardBtn">Dashboard</button>
+
+
+<!-- Hidden Dashboard -->
+<div id="dashboard" class="dashboard">
+    <div class="dashboard-content">
+        <h2>User Dashboard</h2>
+        <p>Welcome! Here you can track your scan history and view reports.</p>
+        <button id="closeDashboardBtn">Close Dashboard</button>
+    </div>
+</div>
+
+<!-- JavaScript to Show/Hide Dashboard -->
+<script>
+    document.getElementById("openDashboardBtn").addEventListener("click", function() {
+        document.getElementById("dashboard").style.display = "flex";
+    });
+
+    document.getElementById("closeDashboardBtn").addEventListener("click", function() {
+        document.getElementById("dashboard").style.display = "none";
+    });
+</script>
+
+<!-- Styles for Button & Dashboard -->
+<style>
+    /* Open Dashboard Button - Positioned at Top Right */
+    #openDashboardBtn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #D2B48C; /* Light cream background */
+      color: #A0522D;            /* Light brown font color */
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  }
+    #openDashboardBtn:hover {
+        background: #f3e5d8;
+    }
+
+    /* Hidden Dashboard Overlay */
+    .dashboard {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Dashboard Content Box */
+    .dashboard-content {
+        background: white;
+        color: #A0522D; /* <-- BROWN FONT COLOR */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 80%;
+        max-width: 500px;
+    }
+
+    /* Close Dashboard Button */
+    #closeDashboardBtn {
+        background: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    #closeDashboardBtn:hover {
+        background: darkred;
+    }
+</style>

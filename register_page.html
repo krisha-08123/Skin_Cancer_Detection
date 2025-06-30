@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register & Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #e2bfb3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      max-width: 100%;
+      padding: 20px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .tab-buttons button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: #eee;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .tab-buttons button.active {
+      background: #A0522D;
+      color: white;
+    }
+
+    form {
+      display: none;
+      flex-direction: column;
+    }
+
+    form.active {
+      display: flex;
+    }
+
+    label {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    input, select {
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button.submit-btn {
+      margin-top: 20px;
+      padding: 10px;
+      background: #8B4513;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button.submit-btn:hover {
+      background: #BC8F8F;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="tab-buttons">
+    <button class="active" onclick="switchTab('register')">Register</button>
+    <button onclick="switchTab('login')">Login</button>
+  </div>
+
+  <form id="registerForm" class="active">
+    <label for="regName">Name</label>
+    <input type="text" id="regName" required>
+
+    <label for="regAge">Age</label>
+    <input type="number" id="regAge" min="1" required>
+
+    <label for="regGender">Gender</label>
+    <select id="regGender" required>
+      <option value="" disabled selected>Select</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="regContact">Contact Number</label>
+    <input type="tel" id="regContact" required pattern="[0-9]{10}" placeholder="10-digit number">
+
+    <label for="regEmail">Email Address</label>
+    <input type="email" id="regEmail" required>
+
+    <label for="regPassword">Password</label>
+    <input type="password" id="regPassword" required minlength="6" maxlength="6" pattern=".{6}" title="Password must be exactly 6 characters">
+    <small style="color: gray; font-size: 12px;">Password should be exactly 6 characters.</small>
+
+
+    <button class="submit-btn" type="submit">Register</button>
+  </form>
+
+  <form id="loginForm">
+    <label for="loginEmail">Email Address</label>
+    <input type="email" id="loginEmail" required>
+
+    <label for="loginPassword">Password</label>
+    <input type="password" id="loginPassword" required minlength="6" maxlength="6" pattern=".{6}" title="Password must be exactly 6 characters">
+    <small style="color: gray; font-size: 12px;">Password should be exactly 6 characters.</small>
+
+
+
+    <button class="submit-btn" type="submit">Login</button>
+
+  </form>
+</div>
+
+<script>
+  function switchTab(tab) {
+    const registerForm = document.getElementById('registerForm');
+    const loginForm = document.getElementById('loginForm');
+    const buttons = document.querySelectorAll('.tab-buttons button');
+
+    if (tab === 'register') {
+      registerForm.classList.add('active');
+      loginForm.classList.remove('active');
+      buttons[0].classList.add('active');
+      buttons[1].classList.remove('active');
+    } else {
+      loginForm.classList.add('active');
+      registerForm.classList.remove('active');
+      buttons[1].classList.add('active');
+      buttons[0].classList.remove('active');
+    }
+  }
+
+  // Wait until DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Stop default form submission
+      // You can also validate here if needed
+      window.location.href = 'success.html'; // Redirect
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.location.href = 'success.html';
+    });
+  });
+</script>
+
+</body>
+</html>

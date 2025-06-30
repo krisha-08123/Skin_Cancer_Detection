@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skin Cancer Detection</title>
+    <style>
+        body {
+            background-color: #e2bfb3;
+            font-family: 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff6de;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #5a3d31;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            margin: 20px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #67857a;
+            color: white;
+            padding: 10px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #546d61;
+        }
+
+        .info-button {
+            background-color: #f09a76;
+            color: white;
+            padding: 10px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .info-button:hover {
+            background-color: #e18159;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Skin Image for Detection</h1>
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required><br>
+            <input type="submit" value="Predict">
+        </form>
+
+        
+       
+
+        <a href="skin_cancer_types.html" target="_blank">
+            <button class="info-button">For more information, click here</button>
+        </a>
+    </div>
+</body>
+</html>
